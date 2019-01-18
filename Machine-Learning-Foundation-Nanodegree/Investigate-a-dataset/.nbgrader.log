@@ -1,0 +1,56 @@
+[NotebookApp | ERROR] Exception while loading config file /etc/jupyter/nbgrader_config.py
+    Traceback (most recent call last):
+      File "/home/hp/workfolder/python/anaconda3/lib/python3.6/site-packages/traitlets/config/application.py", line 562, in _load_config_files
+        config = loader.load_config()
+      File "/home/hp/workfolder/python/anaconda3/lib/python3.6/site-packages/traitlets/config/loader.py", line 457, in load_config
+        self._read_file_as_dict()
+      File "/home/hp/workfolder/python/anaconda3/lib/python3.6/site-packages/traitlets/config/loader.py", line 489, in _read_file_as_dict
+        py3compat.execfile(conf_filename, namespace)
+      File "/home/hp/workfolder/python/anaconda3/lib/python3.6/site-packages/ipython_genutils/py3compat.py", line 198, in execfile
+        exec(compiler(f.read(), fname, 'exec'), glob, loc)
+      File "/etc/jupyter/nbgrader_config.py", line 29
+        "C++14": "// your code here\nthrow new Error();"
+               ^
+    SyntaxError: invalid syntax
+[NotebookApp | INFO] Loading the validate_assignment nbgrader serverextension
+[NotebookApp | INFO] nteract extension loaded from /home/hp/workfolder/python/anaconda3/lib/python3.6/site-packages/nteract_on_jupyter
+[NotebookApp | INFO] Serving notebooks from local directory: /home/hp/workfolder/Udacity-Courses/Machine-Learning-Foundation-Nanodegree/Investigate-a-dataset
+[NotebookApp | INFO] The Jupyter Notebook is running at:
+[NotebookApp | INFO] http://localhost:8888/?token=c1a2182cd4eda6030cd940a87082a7c7135d84d92ca96c9f
+[NotebookApp | INFO] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[NotebookApp | CRITICAL] 
+    
+    Copy/paste this URL into your browser when you connect for the first time,
+    to login with a token:
+        http://localhost:8888/?token=c1a2182cd4eda6030cd940a87082a7c7135d84d92ca96c9f
+[NotebookApp | INFO] Accepting one-time-token-authenticated connection from 127.0.0.1
+[NotebookApp | WARNING] Notebook investigate-a-dataset-template.ipynb is not trusted
+[NotebookApp | INFO] Kernel started: 33494de9-d0cd-44b2-b4dc-a952df9ec28e
+[NotebookApp | INFO] Adapting to protocol v5.1 for kernel 33494de9-d0cd-44b2-b4dc-a952df9ec28e
+[NotebookApp | INFO] Saving file at /investigate-a-dataset-template.ipynb
+[NotebookApp | INFO] Saving file at /investigate-a-dataset-template.ipynb
+[NotebookApp | INFO] Saving file at /investigate-a-dataset-template.ipynb
+[NotebookApp | INFO] Saving file at /investigate-a-dataset-template.ipynb
+[NotebookApp | INFO] Starting buffering for 33494de9-d0cd-44b2-b4dc-a952df9ec28e:449e9e90f1da4918840d946587bd902a
+[NotebookApp | INFO] Adapting to protocol v5.1 for kernel 33494de9-d0cd-44b2-b4dc-a952df9ec28e
+[NotebookApp | INFO] Saving file at /investigate-a-dataset-template.ipynb
+[NotebookApp | INFO] Saving file at /investigate-a-dataset-template.ipynb
+[NotebookApp | INFO] Saving file at /investigate-a-dataset-template.ipynb
+[NotebookApp | INFO] Saving file at /investigate-a-dataset-template.ipynb
+[NotebookApp | INFO] Saving file at /investigate-a-dataset-template.ipynb
+[NotebookApp | INFO] Saving file at /investigate-a-dataset-template.ipynb
+[NotebookApp | INFO] Saving file at /investigate-a-dataset-template.ipynb
+[NotebookApp | INFO] Saving file at /investigate-a-dataset-template.ipynb
+[NotebookApp | INFO] Saving file at /investigate-a-dataset-template.ipynb
+[NotebookApp | INFO] Saving file at /investigate-a-dataset-template.ipynb
+[NotebookApp | INFO] Saving file at /investigate-a-dataset-template.ipynb
+[NotebookApp | INFO] Saving file at /investigate-a-dataset-template.ipynb
+[NotebookApp | INFO] Saving file at /investigate-a-dataset-template.ipynb
+[NotebookApp | INFO] Saving file at /investigate-a-dataset-template.ipynb
+[NotebookApp | INFO] Saving file at /investigate-a-dataset-template.ipynb
+[NotebookApp | INFO] Saving file at /investigate-a-dataset-template.ipynb
+[NotebookApp | INFO] Starting buffering for 33494de9-d0cd-44b2-b4dc-a952df9ec28e:6ba1c632800f464ca1f009ce98d6ac00
+[NotebookApp | INFO] interrupted
+[NotebookApp | CRITICAL] Shutdown confirmed
+[NotebookApp | INFO] Shutting down 1 kernel
+[NotebookApp | INFO] Kernel shutdown: 33494de9-d0cd-44b2-b4dc-a952df9ec28e
