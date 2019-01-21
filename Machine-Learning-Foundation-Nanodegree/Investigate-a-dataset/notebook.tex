@@ -1,0 +1,1246 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass[11pt]{article}
+
+    
+    
+    \usepackage[T1]{fontenc}
+    % Nicer default font (+ math font) than Computer Modern for most use cases
+    \usepackage{mathpazo}
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % We will generate all images so they have a width \maxwidth. This means
+    % that they will get their normal width if they fit onto the page, but
+    % are scaled down if they would overflow the margins.
+    \makeatletter
+    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+    \else\Gin@nat@width\fi}
+    \makeatother
+    \let\Oldincludegraphics\includegraphics
+    % Set max figure width to be 80% of text width, for now hardcoded.
+    \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionLabelFormat{nolabel}{}
+    \captionsetup{labelformat=nolabel}
+
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    
+
+    
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{investigate-a-dataset-template}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \section{Project: Investigate TMDb Movie
+Dataset}\label{project-investigate-tmdb-movie-dataset}
+
+\subsection{Table of Contents}\label{table-of-contents}
+
+Introduction
+
+Data Wrangling
+
+Exploratory Data Analysis
+
+Conclusions
+
+     \#\# Introduction
+
+This project describes the detailed data analysis carried out on
+\textbf{TMDb Movie Dataset}. The dataset has been taken from
+\href{https://www.kaggle.com/tmdb/tmdb-movie-metadata}{Kaggle}.
+
+It consists of metadata on 10866 movies from TMDb (\emph{The Movie
+Database}) and 21 columns consisting of features like popularity, movie
+budget, revenue made by the movie (both in 2010 USD), the movie's
+original title, movie's cast, etc.
+
+In this project, I will try to investigate the following.
+
+\textbf{Question 1}: Movies with maximum and minimum revenue
+
+\textbf{Question 2}: Movies with maximum and minimum popularity
+
+\textbf{Question 3}: Movies with maximum and minimum voting score
+
+\textbf{Question 4}: Number of movies released year by year
+
+\textbf{Question 5}: Features present in movies with high popularity
+
+\textbf{Question 6}: Features present in movies with high voting score
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}1}]:} \PY{c+c1}{\PYZsh{} Import required packages}
+        \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
+        \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+        \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
+        
+        \PY{c+c1}{\PYZsh{} Inline visualization}
+        \PY{o}{\PYZpc{}}\PY{k}{matplotlib} inline
+\end{Verbatim}
+
+
+     \#\# Data Wrangling
+
+\subsubsection{General Properties}\label{general-properties}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}2}]:} \PY{c+c1}{\PYZsh{} Load the dataset}
+        \PY{n}{dataset} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{tmdb\PYZhy{}movies.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}3}]:} \PY{c+c1}{\PYZsh{} View first 1st entry}
+        \PY{n}{dataset}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}3}]:}        id    imdb\_id  popularity     budget     revenue  original\_title  \textbackslash{}
+        0  135397  tt0369610   32.985763  150000000  1513528810  Jurassic World   
+        
+                                                        cast  \textbackslash{}
+        0  Chris Pratt|Bryce Dallas Howard|Irrfan Khan|Vi{\ldots}   
+        
+                                homepage         director            tagline  \textbackslash{}
+        0  http://www.jurassicworld.com/  Colin Trevorrow  The park is open.   
+        
+               {\ldots}                                                overview runtime  \textbackslash{}
+        0      {\ldots}       Twenty-two years after the events of Jurassic {\ldots}     124   
+        
+                                              genres  \textbackslash{}
+        0  Action|Adventure|Science Fiction|Thriller   
+        
+                                        production\_companies release\_date vote\_count  \textbackslash{}
+        0  Universal Studios|Amblin Entertainment|Legenda{\ldots}       6/9/15       5562   
+        
+           vote\_average  release\_year    budget\_adj   revenue\_adj  
+        0           6.5          2015  1.379999e+08  1.392446e+09  
+        
+        [1 rows x 21 columns]
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}4}]:} \PY{n}{dataset}\PY{o}{.}\PY{n}{shape}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}4}]:} (10866, 21)
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}5}]:} \PY{n}{dataset}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}5}]:}                   id    popularity        budget       revenue       runtime  \textbackslash{}
+        count   10866.000000  10866.000000  1.086600e+04  1.086600e+04  10866.000000   
+        mean    66064.177434      0.646441  1.462570e+07  3.982332e+07    102.070863   
+        std     92130.136561      1.000185  3.091321e+07  1.170035e+08     31.381405   
+        min         5.000000      0.000065  0.000000e+00  0.000000e+00      0.000000   
+        25\%     10596.250000      0.207583  0.000000e+00  0.000000e+00     90.000000   
+        50\%     20669.000000      0.383856  0.000000e+00  0.000000e+00     99.000000   
+        75\%     75610.000000      0.713817  1.500000e+07  2.400000e+07    111.000000   
+        max    417859.000000     32.985763  4.250000e+08  2.781506e+09    900.000000   
+        
+                 vote\_count  vote\_average  release\_year    budget\_adj   revenue\_adj  
+        count  10866.000000  10866.000000  10866.000000  1.086600e+04  1.086600e+04  
+        mean     217.389748      5.974922   2001.322658  1.755104e+07  5.136436e+07  
+        std      575.619058      0.935142     12.812941  3.430616e+07  1.446325e+08  
+        min       10.000000      1.500000   1960.000000  0.000000e+00  0.000000e+00  
+        25\%       17.000000      5.400000   1995.000000  0.000000e+00  0.000000e+00  
+        50\%       38.000000      6.000000   2006.000000  0.000000e+00  0.000000e+00  
+        75\%      145.750000      6.600000   2011.000000  2.085325e+07  3.369710e+07  
+        max     9767.000000      9.200000   2015.000000  4.250000e+08  2.827124e+09  
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}6}]:} \PY{n}{dataset}\PY{o}{.}\PY{n}{info}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 10866 entries, 0 to 10865
+Data columns (total 21 columns):
+id                      10866 non-null int64
+imdb\_id                 10856 non-null object
+popularity              10866 non-null float64
+budget                  10866 non-null int64
+revenue                 10866 non-null int64
+original\_title          10866 non-null object
+cast                    10790 non-null object
+homepage                2936 non-null object
+director                10822 non-null object
+tagline                 8042 non-null object
+keywords                9373 non-null object
+overview                10862 non-null object
+runtime                 10866 non-null int64
+genres                  10843 non-null object
+production\_companies    9836 non-null object
+release\_date            10866 non-null object
+vote\_count              10866 non-null int64
+vote\_average            10866 non-null float64
+release\_year            10866 non-null int64
+budget\_adj              10866 non-null float64
+revenue\_adj             10866 non-null float64
+dtypes: float64(4), int64(6), object(11)
+memory usage: 1.7+ MB
+
+    \end{Verbatim}
+
+    \subsubsection{Information gathered from
+dataset}\label{information-gathered-from-dataset}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  The dataset has total \textbf{21 columns} and \textbf{10866 rows}.
+\item
+  There are several \textbf{missing values} as well (specifically in
+  \textbf{homepage}, \textbf{director}, \textbf{cast}, \textbf{tagline},
+  \textbf{keywords}, and other columns).
+\item
+  \textbf{vote\_count} is different for all the movies, so we cannot
+  directly conclude the popularity of the movies based on the average
+  vote count
+\end{enumerate}
+
+    \subsubsection{Data Cleaning}\label{data-cleaning}
+
+    In the beginning phase, we can safely remove the following columns:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \texttt{imdb\_id}
+\item
+  \texttt{cast}
+\item
+  \texttt{homepage}
+\item
+  \texttt{director}
+\item
+  \texttt{tagline}
+\item
+  \texttt{keywords}
+\item
+  \texttt{overview}
+\item
+  \texttt{production\_companies}
+\end{enumerate}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}7}]:} \PY{c+c1}{\PYZsh{} Drop irrelevant columns}
+        \PY{n}{dataset}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{imdb\PYZus{}id}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                     \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{cast}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                      \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{homepage}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                      \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{director}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                      \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{tagline}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                      \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{keywords}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                      \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{overview}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                      \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{production\PYZus{}companies}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}
+               \PY{n}{axis} \PY{o}{=} \PY{l+m+mi}{1}\PY{p}{,}
+               \PY{n}{inplace}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}8}]:} \PY{n}{dataset}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}8}]:}        id  popularity     budget     revenue  original\_title  runtime  \textbackslash{}
+        0  135397   32.985763  150000000  1513528810  Jurassic World      124   
+        
+                                              genres release\_date  vote\_count  \textbackslash{}
+        0  Action|Adventure|Science Fiction|Thriller       6/9/15        5562   
+        
+           vote\_average  release\_year    budget\_adj   revenue\_adj  
+        0           6.5          2015  1.379999e+08  1.392446e+09  
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}9}]:} \PY{n}{dataset}\PY{o}{.}\PY{n}{info}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 10866 entries, 0 to 10865
+Data columns (total 13 columns):
+id                10866 non-null int64
+popularity        10866 non-null float64
+budget            10866 non-null int64
+revenue           10866 non-null int64
+original\_title    10866 non-null object
+runtime           10866 non-null int64
+genres            10843 non-null object
+release\_date      10866 non-null object
+vote\_count        10866 non-null int64
+vote\_average      10866 non-null float64
+release\_year      10866 non-null int64
+budget\_adj        10866 non-null float64
+revenue\_adj       10866 non-null float64
+dtypes: float64(4), int64(6), object(3)
+memory usage: 1.1+ MB
+
+    \end{Verbatim}
+
+    Let's also remove any duplicate rows.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}10}]:} \PY{n}{dataset}\PY{o}{.}\PY{n}{drop\PYZus{}duplicates}\PY{p}{(}\PY{n}{inplace}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}11}]:} \PY{n}{dataset}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}11}]:}                   id    popularity        budget       revenue       runtime  \textbackslash{}
+         count   10865.000000  10865.000000  1.086500e+04  1.086500e+04  10865.000000   
+         mean    66066.374413      0.646446  1.462429e+07  3.982690e+07    102.071790   
+         std     92134.091971      1.000231  3.091428e+07  1.170083e+08     31.382701   
+         min         5.000000      0.000065  0.000000e+00  0.000000e+00      0.000000   
+         25\%     10596.000000      0.207575  0.000000e+00  0.000000e+00     90.000000   
+         50\%     20662.000000      0.383831  0.000000e+00  0.000000e+00     99.000000   
+         75\%     75612.000000      0.713857  1.500000e+07  2.400000e+07    111.000000   
+         max    417859.000000     32.985763  4.250000e+08  2.781506e+09    900.000000   
+         
+                  vote\_count  vote\_average  release\_year    budget\_adj   revenue\_adj  
+         count  10865.000000  10865.000000  10865.000000  1.086500e+04  1.086500e+04  
+         mean     217.399632      5.975012   2001.321859  1.754989e+07  5.136900e+07  
+         std      575.644627      0.935138     12.813260  3.430753e+07  1.446383e+08  
+         min       10.000000      1.500000   1960.000000  0.000000e+00  0.000000e+00  
+         25\%       17.000000      5.400000   1995.000000  0.000000e+00  0.000000e+00  
+         50\%       38.000000      6.000000   2006.000000  0.000000e+00  0.000000e+00  
+         75\%      146.000000      6.600000   2011.000000  2.085325e+07  3.370173e+07  
+         max     9767.000000      9.200000   2015.000000  4.250000e+08  2.827124e+09  
+\end{Verbatim}
+            
+    As is clear, the minimum value for \textbf{budget}, \textbf{revenue},
+\textbf{runtime}, \textbf{budget\_adj} and \textbf{revenue\_adj} is 0.
+This possibly means that the actual values were not present for those
+movies. Let's remove all those rows.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}12}]:} \PY{n}{replace\PYZus{}col} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{budget}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{revenue}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{runtime}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{budget\PYZus{}adj}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{revenue\PYZus{}adj}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+         
+         \PY{c+c1}{\PYZsh{} Convert 0s to NaN}
+         \PY{n}{dataset}\PY{p}{[}\PY{n}{replace\PYZus{}col}\PY{p}{]} \PY{o}{=} \PY{n}{dataset}\PY{p}{[}\PY{n}{replace\PYZus{}col}\PY{p}{]}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{np}\PY{o}{.}\PY{n}{NAN}\PY{p}{)}
+         
+         \PY{c+c1}{\PYZsh{} Drop NAN rows}
+         \PY{n}{dataset}\PY{o}{.}\PY{n}{dropna}\PY{p}{(}\PY{n}{inplace}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}13}]:} \PY{n}{dataset}\PY{o}{.}\PY{n}{shape}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}13}]:} (3854, 13)
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}14}]:} \PY{n}{dataset}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}14}]:}                   id   popularity        budget       revenue      runtime  \textbackslash{}
+         count    3854.000000  3854.000000  3.854000e+03  3.854000e+03  3854.000000   
+         mean    39888.185262     1.191554  3.720370e+07  1.076866e+08   109.220291   
+         std     67222.527399     1.475162  4.220822e+07  1.765393e+08    19.922820   
+         min         5.000000     0.001117  1.000000e+00  2.000000e+00    15.000000   
+         25\%      6073.500000     0.462368  1.000000e+07  1.360003e+07    95.000000   
+         50\%     11321.500000     0.797511  2.400000e+07  4.480000e+07   106.000000   
+         75\%     38573.250000     1.368324  5.000000e+07  1.242125e+08   119.000000   
+         max    417859.000000    32.985763  4.250000e+08  2.781506e+09   338.000000   
+         
+                 vote\_count  vote\_average  release\_year    budget\_adj   revenue\_adj  
+         count  3854.000000   3854.000000   3854.000000  3.854000e+03  3.854000e+03  
+         mean    527.720291      6.168163   2001.261028  4.423999e+07  1.370647e+08  
+         std     879.956821      0.794920     11.282575  4.480925e+07  2.161114e+08  
+         min      10.000000      2.200000   1960.000000  9.693980e-01  2.370705e+00  
+         25\%      71.000000      5.700000   1995.000000  1.309053e+07  1.835735e+07  
+         50\%     204.000000      6.200000   2004.000000  3.001611e+07  6.173068e+07  
+         75\%     580.000000      6.700000   2010.000000  6.061307e+07  1.632577e+08  
+         max    9767.000000      8.400000   2015.000000  4.250000e+08  2.827124e+09  
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}16}]:} \PY{n}{dataset}\PY{o}{.}\PY{n}{info}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 3854 entries, 0 to 10848
+Data columns (total 13 columns):
+id                3854 non-null int64
+popularity        3854 non-null float64
+budget            3854 non-null float64
+revenue           3854 non-null float64
+original\_title    3854 non-null object
+runtime           3854 non-null float64
+genres            3854 non-null object
+release\_date      3854 non-null object
+vote\_count        3854 non-null int64
+vote\_average      3854 non-null float64
+release\_year      3854 non-null int64
+budget\_adj        3854 non-null float64
+revenue\_adj       3854 non-null float64
+dtypes: float64(7), int64(3), object(3)
+memory usage: 421.5+ KB
+
+    \end{Verbatim}
+
+    Now we have a total of 3854 rows, 13 columns to analyse. There is no
+missing data.
+
+     \#\# Exploratory Data Analysis
+
+Now that we have pre-processed our data, let's carry out EDA.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}23}]:} \PY{c+c1}{\PYZsh{} List all the columns}
+         \PY{n}{dataset}\PY{o}{.}\PY{n}{columns}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}23}]:} Index(['id', 'popularity', 'budget', 'revenue', 'original\_title', 'runtime',
+                'genres', 'release\_date', 'vote\_count', 'vote\_average', 'release\_year',
+                'budget\_adj', 'revenue\_adj'],
+               dtype='object')
+\end{Verbatim}
+            
+    We can ignore \textbf{id}. Let's now start with \textbf{popularity}
+feature.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}26}]:} \PY{n}{dataset}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{popularity}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{hist}\PY{p}{(}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_27_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \emph{As is clear from the histogram, most of the movies have a
+popularity between 0 and 4. And a very less number of movies have
+popularity more than 10.}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}27}]:} \PY{n}{dataset}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{budget}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{hist}\PY{p}{(}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_29_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \emph{The histogram shows that maximum movies have their budget between
+0 and 0.5e8. And a very low number of movies have budget more than 2e8.}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}28}]:} \PY{n}{dataset}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{revenue}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{hist}\PY{p}{(}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_31_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \emph{It's interesting to note that the histogram of} \textbf{revenue}
+\emph{and} \textbf{popularity} \emph{is very similar.}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}29}]:} \PY{n}{dataset}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{runtime}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{hist}\PY{p}{(}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_33_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \emph{The histogram of \textbf{runtime} is really close to normal
+distribution or slightly right skewed.}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}30}]:} \PY{n}{dataset}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{vote\PYZus{}count}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{hist}\PY{p}{(}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_35_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \emph{The similar shape of histograms of \textbf{vote\_count},
+\textbf{revenue} and \textbf{popularity} might be an indication of a
+strong positive relationship between these features.}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}31}]:} \PY{n}{dataset}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{vote\PYZus{}average}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{hist}\PY{p}{(}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_37_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \emph{The histogram of \textbf{vote\_average} recognizes a normal
+distribution.}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}32}]:} \PY{n}{dataset}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{release\PYZus{}year}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{hist}\PY{p}{(}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_39_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \emph{The histogram of \textbf{release\_year} is left skewed. The number
+of movies released is on a continuous increase since 1960}.
+
+    \textbf{Let's now explore a relationship between different features}
+
+    \subsubsection{Popularity vs Revenue}\label{popularity-vs-revenue}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}35}]:} \PY{n}{dataset}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{revenue}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{y}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{popularity}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{kind}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{scatter}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_43_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsubsection{Budget vs Revenue}\label{budget-vs-revenue}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}36}]:} \PY{n}{dataset}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{revenue}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{y}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{budget}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{kind}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{scatter}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_45_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsubsection{Popularity vs Budget}\label{popularity-vs-budget}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}43}]:} \PY{n}{dataset}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{budget}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{y}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{popularity}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{kind}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{scatter}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_47_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    As is clear from both the scatter plots, there is a positive correlation
+between revenue and budget and revenue and popularity. There is also a
+slightly positive correlation between popularity and budget. As
+expected, there is a stronger relationship between popularity and
+revenue than popularity and budget.
+
+    \subsubsection{Question 1: Movies with maximum and minimum
+revenue}\label{question-1-movies-with-maximum-and-minimum-revenue}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}44}]:} \PY{c+c1}{\PYZsh{} Movie with maximum revenue}
+         \PY{n}{dataset}\PY{p}{[}\PY{n}{dataset}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{revenue}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{n}{dataset}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{revenue}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{max}\PY{p}{(}\PY{p}{)}\PY{p}{]}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}44}]:}          id  popularity       budget       revenue original\_title  runtime  \textbackslash{}
+         1386  19995    9.432768  237000000.0  2.781506e+09         Avatar    162.0   
+         
+                                                 genres release\_date  vote\_count  \textbackslash{}
+         1386  Action|Adventure|Fantasy|Science Fiction     12/10/09        8458   
+         
+               vote\_average  release\_year    budget\_adj   revenue\_adj  
+         1386           7.1          2009  2.408869e+08  2.827124e+09  
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}45}]:} \PY{c+c1}{\PYZsh{} Movie with minimum revenue}
+         \PY{n}{dataset}\PY{p}{[}\PY{n}{dataset}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{revenue}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{n}{dataset}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{revenue}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{min}\PY{p}{(}\PY{p}{)}\PY{p}{]}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}45}]:}          id  popularity     budget  revenue   original\_title  runtime  \textbackslash{}
+         5067  13537    0.462609  6000000.0      2.0  Shattered Glass     94.0   
+         8142   2293    0.552091  6000000.0      2.0         Mallrats     94.0   
+         
+                       genres release\_date  vote\_count  vote\_average  release\_year  \textbackslash{}
+         5067   Drama|History     11/14/03          46           6.4          2003   
+         8142  Romance|Comedy     10/20/95         201           6.8          1995   
+         
+                 budget\_adj  revenue\_adj  
+         5067  7.112116e+06     2.370705  
+         8142  8.585801e+06     2.861934  
+\end{Verbatim}
+            
+    \textbf{Avatar} has the highest revenue whereas \textbf{Shattered Glass}
+and \textbf{Mallrats} have the lowest revenue.
+
+    \subsubsection{Question 2: Movies with maximum and minimum
+popularity}\label{question-2-movies-with-maximum-and-minimum-popularity}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}46}]:} \PY{c+c1}{\PYZsh{} Maximum popularity}
+         \PY{n}{dataset}\PY{p}{[}\PY{n}{dataset}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{popularity}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{n}{dataset}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{popularity}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{max}\PY{p}{(}\PY{p}{)}\PY{p}{]}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}46}]:}        id  popularity       budget       revenue  original\_title  runtime  \textbackslash{}
+         0  135397   32.985763  150000000.0  1.513529e+09  Jurassic World    124.0   
+         
+                                               genres release\_date  vote\_count  \textbackslash{}
+         0  Action|Adventure|Science Fiction|Thriller       6/9/15        5562   
+         
+            vote\_average  release\_year    budget\_adj   revenue\_adj  
+         0           6.5          2015  1.379999e+08  1.392446e+09  
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}47}]:} \PY{c+c1}{\PYZsh{} Minimum popularity}
+         \PY{n}{dataset}\PY{p}{[}\PY{n}{dataset}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{popularity}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{n}{dataset}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{popularity}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{min}\PY{p}{(}\PY{p}{)}\PY{p}{]}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}47}]:}         id  popularity    budget    revenue      original\_title  runtime  \textbackslash{}
+         7268  1392    0.001117  350000.0  3515061.0  Born into Brothels     85.0   
+         
+                    genres release\_date  vote\_count  vote\_average  release\_year  \textbackslash{}
+         7268  Documentary      12/8/04          23           6.4          2004   
+         
+                  budget\_adj   revenue\_adj  
+         7268  404055.889934  4.057946e+06  
+\end{Verbatim}
+            
+    \textbf{Jurassic World} has the maximum popularity whereas \textbf{Born
+into Brothels} has the minimum popularity.
+
+    \subsubsection{Question 3: Movies with maximum and minimum voting
+score}\label{question-3-movies-with-maximum-and-minimum-voting-score}
+
+    Since the vote count for each movie is different, we will use average
+voting score to compare scores across movies.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}48}]:} \PY{c+c1}{\PYZsh{} Maximum voting score}
+         \PY{n}{dataset}\PY{p}{[}\PY{n}{dataset}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{vote\PYZus{}average}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{n}{dataset}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{vote\PYZus{}average}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{max}\PY{p}{(}\PY{p}{)}\PY{p}{]}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}48}]:}          id  popularity      budget     revenue            original\_title  \textbackslash{}
+         4178    278    7.192039  25000000.0  28341469.0  The Shawshank Redemption   
+         7948  24128    0.283191   1200000.0   4978922.0         Stop Making Sense   
+         
+               runtime             genres release\_date  vote\_count  vote\_average  \textbackslash{}
+         4178    142.0        Drama|Crime      9/10/94        5754           8.4   
+         7948     88.0  Documentary|Music     11/16/84          23           8.4   
+         
+               release\_year    budget\_adj   revenue\_adj  
+         4178          1994  3.677779e+07  4.169346e+07  
+         7948          1984  2.518850e+06  1.045097e+07  
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}49}]:} \PY{c+c1}{\PYZsh{} Minimum voting score}
+         \PY{n}{dataset}\PY{p}{[}\PY{n}{dataset}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{vote\PYZus{}average}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{n}{dataset}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{vote\PYZus{}average}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{min}\PY{p}{(}\PY{p}{)}\PY{p}{]}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}49}]:}           id  popularity      budget  revenue original\_title  runtime  \textbackslash{}
+         4859  116977    0.111351  65000000.0  73706.0     Foodfight!     87.0   
+         
+                                       genres release\_date  vote\_count  vote\_average  \textbackslash{}
+         4859  Animation|Action|Comedy|Family      6/15/12          12           2.2   
+         
+               release\_year    budget\_adj   revenue\_adj  
+         4859          2012  6.173338e+07  70001.852001  
+\end{Verbatim}
+            
+    \textbf{The Shawshank Redemption} and \textbf{Stop Making Sense} have
+the maximum voting score whereas \textbf{Foodfight!} has the minimum
+voting score.
+
+    \subsubsection{Question 4: Number of movies released year by
+year}\label{question-4-number-of-movies-released-year-by-year}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}55}]:} \PY{n}{dataset}\PY{o}{.}\PY{n}{groupby}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{release\PYZus{}year}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{size}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}55}]:} release\_year
+         1960      5
+         1961     10
+         1962      7
+         1963      6
+         1964      7
+         1965      5
+         1966      5
+         1967     13
+         1968      9
+         1969      4
+         1970     11
+         1971     13
+         1972      8
+         1973     12
+         1974     13
+         1975      9
+         1976     15
+         1977     19
+         1978     17
+         1979     16
+         1980     23
+         1981     30
+         1982     26
+         1983     31
+         1984     42
+         1985     41
+         1986     48
+         1987     46
+         1988     57
+         1989     51
+         1990     53
+         1991     50
+         1992     53
+         1993     72
+         1994     62
+         1995     81
+         1996     86
+         1997     90
+         1998     92
+         1999    116
+         2000    106
+         2001    121
+         2002    127
+         2003    121
+         2004    147
+         2005    163
+         2006    169
+         2007    165
+         2008    167
+         2009    174
+         2010    178
+         2011    199
+         2012    158
+         2013    180
+         2014    165
+         2015    160
+         dtype: int64
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}56}]:} \PY{n}{dataset}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{release\PYZus{}year}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{hist}\PY{p}{(}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_64_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    From the histogram and the table above, it's clear that the number of
+released movies is on an increase.
+
+    \subsubsection{Question 5: Features present in movies with high
+popularity}\label{question-5-features-present-in-movies-with-high-popularity}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}57}]:} \PY{n}{dataset}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}57}]:}        id  popularity       budget       revenue  original\_title  runtime  \textbackslash{}
+         0  135397   32.985763  150000000.0  1.513529e+09  Jurassic World    124.0   
+         
+                                               genres release\_date  vote\_count  \textbackslash{}
+         0  Action|Adventure|Science Fiction|Thriller       6/9/15        5562   
+         
+            vote\_average  release\_year    budget\_adj   revenue\_adj  
+         0           6.5          2015  1.379999e+08  1.392446e+09  
+\end{Verbatim}
+            
+    Let's now divide the popularity into two parts based on the median.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}59}]:} \PY{n}{high\PYZus{}pop} \PY{o}{=} \PY{n}{dataset}\PY{o}{.}\PY{n}{query}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{popularity \PYZgt{} }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{dataset}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{popularity}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{median}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+         \PY{n}{low\PYZus{}pop} \PY{o}{=} \PY{n}{dataset}\PY{o}{.}\PY{n}{query}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{popularity \PYZlt{}= }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{dataset}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{popularity}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{median}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}60}]:} \PY{n}{high\PYZus{}pop}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}60}]:}                   id   popularity        budget       revenue      runtime  \textbackslash{}
+         count    1927.000000  1927.000000  1.927000e+03  1.927000e+03  1927.000000   
+         mean    48228.267774     1.926114  5.257830e+07  1.778594e+08   111.758692   
+         std     77677.591360     1.798779  4.991372e+07  2.205608e+08    20.237079   
+         min         5.000000     0.797723  2.100000e+01  4.200000e+01    63.000000   
+         25\%      1993.000000     1.042908  1.700000e+07  4.375245e+07    97.000000   
+         50\%     10138.000000     1.368403  3.500000e+07  1.081451e+08   108.000000   
+         75\%     57507.000000     2.148295  7.000000e+07  2.196030e+08   123.000000   
+         max    417859.000000    32.985763  3.800000e+08  2.781506e+09   248.000000   
+         
+                 vote\_count  vote\_average  release\_year    budget\_adj   revenue\_adj  
+         count  1927.000000   1927.000000   1927.000000  1.927000e+03  1.927000e+03  
+         mean    923.537623      6.378153   2003.164504  5.989180e+07  2.193305e+08  
+         std    1082.666068      0.755262     10.916583  5.172394e+07  2.685121e+08  
+         min      10.000000      3.300000   1960.000000  3.169887e+01  6.339774e+01  
+         25\%     283.500000      5.900000   1998.000000  2.205247e+07  5.529595e+07  
+         50\%     551.000000      6.400000   2006.000000  4.326677e+07  1.328373e+08  
+         75\%    1098.500000      6.900000   2011.000000  8.385196e+07  2.777767e+08  
+         max    9767.000000      8.400000   2015.000000  3.683713e+08  2.827124e+09  
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}62}]:} \PY{n}{low\PYZus{}pop}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}62}]:}                   id   popularity        budget       revenue      runtime  \textbackslash{}
+         count    1927.000000  1927.000000  1.927000e+03  1.927000e+03  1927.000000   
+         mean    31548.102750     0.456994  2.182910e+07  3.751386e+07   106.681889   
+         std     53545.198136     0.194972  2.448697e+07  6.203095e+07    19.277204   
+         min        59.000000     0.001117  1.000000e+00  2.000000e+00    15.000000   
+         25\%      9430.500000     0.303678  6.000000e+06  5.365944e+06    94.000000   
+         50\%     11962.000000     0.462287  1.500000e+07  1.863769e+07   103.000000   
+         75\%     25185.500000     0.613465  3.000000e+07  4.608125e+07   115.000000   
+         max    343795.000000     0.797298  4.250000e+08  1.123747e+09   338.000000   
+         
+                 vote\_count  vote\_average  release\_year    budget\_adj   revenue\_adj  
+         count  1927.000000   1927.000000   1927.000000  1.927000e+03  1.927000e+03  
+         mean    131.902958      5.958173   1999.357551  2.858819e+07  5.479892e+07  
+         std     251.751514      0.778117     11.324182  2.917538e+07  8.826884e+07  
+         min      10.000000      2.200000   1960.000000  9.693980e-01  2.370705e+00  
+         25\%      34.000000      5.400000   1993.000000  8.614552e+06  7.167460e+06  
+         50\%      74.000000      6.000000   2002.000000  2.025573e+07  2.629205e+07  
+         75\%     149.000000      6.500000   2008.000000  3.847119e+07  6.684051e+07  
+         max    4368.000000      8.400000   2015.000000  4.250000e+08  1.089358e+09  
+\end{Verbatim}
+            
+    Using both the descriptions, we can conclude that:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  More popular movies have a higher average budget and earn a higher
+  average revenue.
+\item
+  More popular movies also have a higher average vote score.
+\item
+  On an average, more popular movies have been released in 21st century
+  whereas the less popular ones were released in 20th century.
+\end{enumerate}
+
+    \subsubsection{Question 6: Features present in movies with high voting
+score}\label{question-6-features-present-in-movies-with-high-voting-score}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}64}]:} \PY{n}{high\PYZus{}vote} \PY{o}{=} \PY{n}{dataset}\PY{o}{.}\PY{n}{query}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{vote\PYZus{}average \PYZgt{} }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{dataset}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{vote\PYZus{}average}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{median}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+         \PY{n}{low\PYZus{}vote} \PY{o}{=} \PY{n}{dataset}\PY{o}{.}\PY{n}{query}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{vote\PYZus{}average \PYZlt{}= }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{dataset}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{vote\PYZus{}average}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{median}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}65}]:} \PY{n}{high\PYZus{}vote}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}65}]:}                   id   popularity        budget       revenue      runtime  \textbackslash{}
+         count    1810.000000  1810.000000  1.810000e+03  1.810000e+03  1810.000000   
+         mean    38815.917127     1.549202  3.702025e+07  1.387977e+08   115.197238   
+         std     69557.485734     1.936018  4.604141e+07  2.220458e+08    22.131380   
+         min         5.000000     0.001117  3.000000e+00  2.000000e+00    15.000000   
+         25\%      1808.250000     0.538588  8.000000e+06  1.764219e+07   100.000000   
+         50\%     10330.500000     1.012008  2.000000e+07  5.627681e+07   112.000000   
+         75\%     37059.250000     1.847399  4.600000e+07  1.557504e+08   126.000000   
+         max    417859.000000    32.985763  4.250000e+08  2.781506e+09   248.000000   
+         
+                 vote\_count  vote\_average  release\_year    budget\_adj   revenue\_adj  
+         count  1810.000000    1810.00000   1810.000000  1.810000e+03  1.810000e+03  
+         mean    793.616022       6.83768   1999.791160  4.463451e+07  1.825898e+08  
+         std    1145.825738       0.42277     12.555175  4.796147e+07  2.735890e+08  
+         min      10.000000       6.30000   1960.000000  3.000000e+00  2.370705e+00  
+         25\%     111.250000       6.50000   1993.000000  1.253202e+07  2.427255e+07  
+         50\%     354.000000       6.70000   2003.000000  2.846459e+07  8.308796e+07  
+         75\%     955.000000       7.10000   2010.000000  5.885327e+07  2.192492e+08  
+         max    9767.000000       8.40000   2015.000000  4.250000e+08  2.827124e+09  
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}66}]:} \PY{n}{low\PYZus{}vote}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}66}]:}                   id   popularity        budget       revenue      runtime  \textbackslash{}
+         count    2044.000000  2044.000000  2.044000e+03  2.044000e+03  2044.000000   
+         mean    40837.698630     0.874851  3.736614e+07  8.013718e+07   103.927593   
+         std     65087.358661     0.755971  3.850738e+07  1.162060e+08    15.974853   
+         min        27.000000     0.010335  1.000000e+00  5.000000e+00    66.000000   
+         25\%      9370.750000     0.410079  1.100000e+07  1.140635e+07    93.000000   
+         50\%     12209.500000     0.678802  2.500000e+07  3.682505e+07   101.000000   
+         75\%     41321.250000     1.084270  5.000000e+07  1.026038e+08   112.000000   
+         max    343795.000000     8.654359  2.700000e+08  1.123747e+09   338.000000   
+         
+                 vote\_count  vote\_average  release\_year    budget\_adj   revenue\_adj  
+         count  2044.000000   2044.000000   2044.000000  2.044000e+03  2.044000e+03  
+         mean    292.264677      5.575294   2002.562622  4.389064e+07  9.675137e+07  
+         std     423.905248      0.533545      9.843190  4.182886e+07  1.354322e+08  
+         min      10.000000      2.200000   1961.000000  9.693980e-01  6.951084e+00  
+         25\%      51.000000      5.300000   1997.000000  1.360312e+07  1.500240e+07  
+         50\%     144.000000      5.700000   2005.000000  3.153443e+07  4.637942e+07  
+         75\%     334.000000      6.000000   2010.000000  6.157441e+07  1.223814e+08  
+         max    3559.000000      6.200000   2015.000000  2.920507e+08  1.583050e+09  
+\end{Verbatim}
+            
+    It can be concluded from both the descriptions that:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  There are more movies with lower average vote score.
+\item
+  Movies with lower vote score tend to have a lower popularity.
+\item
+  On an average, the budget of movies with lower average vote score was
+  higher but the revenue earned was higher.
+\item
+  Runtime for movies with lower average vote score was lower.
+\item
+  Vote count for movies with lower average vote score was also lower.
+\end{enumerate}
+
+     \#\# Conclusions
+
+From the figures and analysis carried out, for a movie to be more
+popular,
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  It should have an average budget of 53 million
+\item
+  Average runtime of the movie should be 112 minutes
+\end{enumerate}
+
+For a movie to have a higher voting average score,
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Runtime should be 115 minutes.
+\item
+  The average budget of the movie should be 37 million
+\end{enumerate}
+
+This means that on an average, it takes a movie of comparatively lower
+budget but longer runtime to have a higher voting average score rather
+than having a higher popularity.
+
+Because of the rows dropped (with 0 as budget, and other features), we
+have potentially lost a lot of data. Even the units of a lot of features
+is not clear and this can also mean that the data reported may not be in
+the same units. We also cannot be sure that the darta provided is up
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}
