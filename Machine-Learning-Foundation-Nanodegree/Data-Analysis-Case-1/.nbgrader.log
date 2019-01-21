@@ -130,3 +130,10 @@
 [NotebookApp | INFO] Saving file at /plotting_type_quality.ipynb
 [NotebookApp | INFO] Saving file at /plotting_type_quality.ipynb
 [NotebookApp | INFO] Starting buffering for 1a45a2be-5f5e-4c67-87ab-f59f04b226ae:fa91b18aedb646658ae9fb8c01ddb11f
+[NotebookApp | INFO] interrupted
+[NotebookApp | CRITICAL] Shutdown confirmed
+[NotebookApp | INFO] Shutting down 4 kernels
+[NotebookApp | INFO] Kernel shutdown: 620489c6-1987-405b-a6ca-2da47dbec500
+[NotebookApp | INFO] Kernel shutdown: 479f12a5-951f-44b2-bb59-4e0587fb7950
+[NotebookApp | INFO] Kernel shutdown: 6a2370af-d8a2-4d15-82db-021577fa63ca
+[NotebookApp | INFO] Kernel shutdown: 1a45a2be-5f5e-4c67-87ab-f59f04b226ae
