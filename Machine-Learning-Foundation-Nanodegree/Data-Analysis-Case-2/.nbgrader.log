@@ -110,3 +110,81 @@
 [NotebookApp | INFO] Saving file at /fix_datatypes_mpg_greenhouse.ipynb
 [NotebookApp | INFO] Saving file at /fix_datatypes_mpg_greenhouse.ipynb
 [NotebookApp | INFO] Starting buffering for d0932e22-bc8d-45c0-9be8-6da37817c884:c2253248a7e349368215e191aa2dde1f
+[NotebookApp | INFO] Kernel shutdown: f9b3b38b-e432-43f5-b10b-923fe46068d6
+[NotebookApp | INFO] Kernel shutdown: ac828d00-bc9a-4c99-a711-f12374e12fbd
+[NotebookApp | INFO] Kernel shutdown: 5b0d182d-ee98-484d-a03a-227b09d998f8
+[NotebookApp | INFO] Kernel shutdown: 2175dde2-1a87-4f56-aa07-b2091c28e2de
+[NotebookApp | INFO] Kernel shutdown: bf0183a8-458f-49df-aa48-10405cf32bef
+[NotebookApp | INFO] Kernel shutdown: c7bbef0b-c7b1-477f-8732-3a76442000c0
+[NotebookApp | INFO] Kernel shutdown: d0932e22-bc8d-45c0-9be8-6da37817c884
+[NotebookApp | INFO] Kernel shutdown: 3da30997-9995-4916-adf8-4169ecf223d2
+[NotebookApp | WARNING] Notebook exploring_visuals.ipynb is not trusted
+[NotebookApp | INFO] Kernel started: 582d51fc-fae0-47d3-ab90-d9ab855dfdd1
+[NotebookApp | INFO] Adapting to protocol v5.1 for kernel 582d51fc-fae0-47d3-ab90-d9ab855dfdd1
+[NotebookApp | INFO] Saving file at /exploring_visuals.ipynb
+[NotebookApp | INFO] Saving file at /exploring_visuals.ipynb
+[NotebookApp | INFO] Saving file at /exploring_visuals.ipynb
+[NotebookApp | INFO] Saving file at /exploring_visuals.ipynb
+[NotebookApp | INFO] Starting buffering for 582d51fc-fae0-47d3-ab90-d9ab855dfdd1:767be71662f44ed4ae432e8e7af58f46
+[NotebookApp | WARNING] Notebook drawing_conclusions.ipynb is not trusted
+[NotebookApp | INFO] Kernel started: 899ea5d8-36fe-4d20-8f43-f8769ff61b4d
+[NotebookApp | INFO] Adapting to protocol v5.1 for kernel 899ea5d8-36fe-4d20-8f43-f8769ff61b4d
+[NotebookApp | WARNING] Notebook drawing-conclusions-solutions.ipynb is not trusted
+[NotebookApp | INFO] Kernel started: c3dcac22-84f9-407f-bc55-25efc7e8effc
+[NotebookApp | INFO] Saving file at /drawing_conclusions.ipynb
+[NotebookApp | INFO] Adapting to protocol v5.1 for kernel c3dcac22-84f9-407f-bc55-25efc7e8effc
+[NotebookApp | INFO] Saving file at /drawing_conclusions.ipynb
+[NotebookApp | INFO] Saving file at /drawing-conclusions-solutions.ipynb
+[NotebookApp | WARNING] Notebook drawing-conclusions-solutions.ipynb is not trusted
+[NotebookApp | INFO] Saving file at /drawing_conclusions.ipynb
+[NotebookApp | INFO] Saving file at /drawing_conclusions.ipynb
+[NotebookApp | INFO] Saving file at /drawing_conclusions.ipynb
+[NotebookApp | INFO] Saving file at /drawing_conclusions.ipynb
+[NotebookApp | INFO] Saving file at /drawing_conclusions.ipynb
+[NotebookApp | INFO] Saving file at /drawing_conclusions.ipynb
+[NotebookApp | INFO] Saving file at /drawing_conclusions.ipynb
+[NotebookApp | INFO] Saving file at /drawing_conclusions.ipynb
+[NotebookApp | INFO] Saving file at /drawing_conclusions.ipynb
+[NotebookApp | INFO] Saving file at /drawing_conclusions.ipynb
+[NotebookApp | INFO] Saving file at /drawing_conclusions.ipynb
+[NotebookApp | INFO] Saving file at /drawing_conclusions.ipynb
+[NotebookApp | INFO] Saving file at /drawing_conclusions.ipynb
+[NotebookApp | INFO] Starting buffering for 899ea5d8-36fe-4d20-8f43-f8769ff61b4d:783ae6eb069c49958374ee02bfa764da
+[NotebookApp | INFO] Starting buffering for c3dcac22-84f9-407f-bc55-25efc7e8effc:9f275fd230db427b9755d8726dae1fad
+[NotebookApp | WARNING] Notebook merging_data.ipynb is not trusted
+[NotebookApp | INFO] Kernel started: 4c6cfa23-6442-4794-b35d-a0403d0c49c6
+[NotebookApp | INFO] Adapting to protocol v5.1 for kernel 4c6cfa23-6442-4794-b35d-a0403d0c49c6
+[NotebookApp | WARNING] Notebook merging-data.ipynb is not trusted
+[NotebookApp | INFO] Kernel started: 68de0740-223d-4fae-9024-c399e9f80d1a
+[NotebookApp | INFO] Adapting to protocol v5.1 for kernel 68de0740-223d-4fae-9024-c399e9f80d1a
+[NotebookApp | INFO] Saving file at /merging_data.ipynb
+[NotebookApp | INFO] Starting buffering for 68de0740-223d-4fae-9024-c399e9f80d1a:203a18411bd04b7caf7280a83fee4013
+[NotebookApp | INFO] Saving file at /merging_data.ipynb
+[NotebookApp | INFO] Starting buffering for 4c6cfa23-6442-4794-b35d-a0403d0c49c6:e3e5efde877f40c09842ea60fe9e3c1c
+[NotebookApp | INFO] Kernel shutdown: 68de0740-223d-4fae-9024-c399e9f80d1a
+[NotebookApp | WARNING] delete /merging-data.ipynb
+[NotebookApp | WARNING] Notebook results_merged.ipynb is not trusted
+[NotebookApp | INFO] Kernel started: b2f2c91a-3455-4a62-b56c-c61af25e6f01
+[NotebookApp | INFO] Adapting to protocol v5.1 for kernel b2f2c91a-3455-4a62-b56c-c61af25e6f01
+[NotebookApp | INFO] Saving file at /results_merged.ipynb
+[NotebookApp | WARNING] Notebook results_merged_solutions.ipynb is not trusted
+[NotebookApp | INFO] Kernel started: d1ab0f7d-1248-45b4-9779-802c8778cec5
+[NotebookApp | INFO] Adapting to protocol v5.1 for kernel d1ab0f7d-1248-45b4-9779-802c8778cec5
+[NotebookApp | INFO] Saving file at /results_merged.ipynb
+[NotebookApp | INFO] Saving file at /results_merged_solutions.ipynb
+[NotebookApp | WARNING] Notebook results_merged_solutions.ipynb is not trusted
+[NotebookApp | INFO] Saving file at /results_merged.ipynb
+[NotebookApp | INFO] Saving file at /results_merged.ipynb
+[NotebookApp | INFO] Starting buffering for d1ab0f7d-1248-45b4-9779-802c8778cec5:c1e4671333604c5fb69086a4f8cfc754
+[NotebookApp | INFO] Kernel shutdown: d1ab0f7d-1248-45b4-9779-802c8778cec5
+[NotebookApp | WARNING] delete /results_merged_solutions.ipynb
+[NotebookApp | INFO] Saving file at /results_merged.ipynb
+[NotebookApp | INFO] Starting buffering for b2f2c91a-3455-4a62-b56c-c61af25e6f01:a2bdbd9af4d94631b06e293c11bb2f16
+[NotebookApp | INFO] interrupted
+[NotebookApp | CRITICAL] Shutdown confirmed
+[NotebookApp | INFO] Shutting down 5 kernels
+[NotebookApp | INFO] Kernel shutdown: 582d51fc-fae0-47d3-ab90-d9ab855dfdd1
+[NotebookApp | INFO] Kernel shutdown: 899ea5d8-36fe-4d20-8f43-f8769ff61b4d
+[NotebookApp | INFO] Kernel shutdown: c3dcac22-84f9-407f-bc55-25efc7e8effc
+[NotebookApp | INFO] Kernel shutdown: 4c6cfa23-6442-4794-b35d-a0403d0c49c6
+[NotebookApp | INFO] Kernel shutdown: b2f2c91a-3455-4a62-b56c-c61af25e6f01
