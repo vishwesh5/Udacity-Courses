@@ -167,3 +167,41 @@
 [NotebookApp | CRITICAL] Shutdown confirmed
 [NotebookApp | INFO] Shutting down 1 kernel
 [NotebookApp | INFO] Kernel shutdown: 9a63d89d-f1b4-403a-b96f-d250d0f6777a
+[NotebookApp | ERROR] Exception while loading config file /etc/jupyter/nbgrader_config.py
+    Traceback (most recent call last):
+      File "/home/hp/workfolder/python/anaconda3/lib/python3.6/site-packages/traitlets/config/application.py", line 562, in _load_config_files
+        config = loader.load_config()
+      File "/home/hp/workfolder/python/anaconda3/lib/python3.6/site-packages/traitlets/config/loader.py", line 457, in load_config
+        self._read_file_as_dict()
+      File "/home/hp/workfolder/python/anaconda3/lib/python3.6/site-packages/traitlets/config/loader.py", line 489, in _read_file_as_dict
+        py3compat.execfile(conf_filename, namespace)
+      File "/home/hp/workfolder/python/anaconda3/lib/python3.6/site-packages/ipython_genutils/py3compat.py", line 198, in execfile
+        exec(compiler(f.read(), fname, 'exec'), glob, loc)
+      File "/etc/jupyter/nbgrader_config.py", line 29
+        "C++14": "// your code here\nthrow new Error();"
+               ^
+    SyntaxError: invalid syntax
+[NotebookApp | INFO] Loading the validate_assignment nbgrader serverextension
+[NotebookApp | INFO] nteract extension loaded from /home/hp/workfolder/python/anaconda3/lib/python3.6/site-packages/nteract_on_jupyter
+[NotebookApp | INFO] Serving notebooks from local directory: /home/hp/workfolder/Udacity-Courses/Machine-Learning-Foundation-Nanodegree/Investigate-a-dataset
+[NotebookApp | INFO] The Jupyter Notebook is running at:
+[NotebookApp | INFO] http://localhost:8888/?token=6eb504053a077282ca36e43a685b0a304749fc4b2d11772c
+[NotebookApp | INFO] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[NotebookApp | CRITICAL] 
+    
+    Copy/paste this URL into your browser when you connect for the first time,
+    to login with a token:
+        http://localhost:8888/?token=6eb504053a077282ca36e43a685b0a304749fc4b2d11772c
+[NotebookApp | INFO] Accepting one-time-token-authenticated connection from 127.0.0.1
+[NotebookApp | INFO] Kernel started: d9adc1e6-2cd9-4973-ad69-3a9f3fbd33e0
+[NotebookApp | INFO] Adapting to protocol v5.1 for kernel d9adc1e6-2cd9-4973-ad69-3a9f3fbd33e0
+[NotebookApp | INFO] Saving file at /investigate-a-dataset-template.ipynb
+[NotebookApp | INFO] Saving file at /investigate-a-dataset-template.ipynb
+[NotebookApp | INFO] Saving file at /investigate-a-dataset-template.ipynb
+[NotebookApp | INFO] Saving file at /investigate-a-dataset-template.ipynb
+[NotebookApp | INFO] Saving file at /investigate-a-dataset-template.ipynb
+[NotebookApp | WARNING] Notebook investigate-a-dataset-template.ipynb is not trusted
+[NotebookApp | INFO] interrupted
+[NotebookApp | CRITICAL] Shutdown confirmed
+[NotebookApp | INFO] Shutting down 1 kernel
+[NotebookApp | INFO] Kernel shutdown: d9adc1e6-2cd9-4973-ad69-3a9f3fbd33e0
